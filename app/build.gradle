@@ -1,0 +1,97 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+    id 'kotlin-android-extensions'
+    id 'androidx.navigation.safeargs.kotlin'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.1"
+
+    defaultConfig {
+        applicationId "com.example.axiatatest"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'APP_TYPE', '"debug"')
+            buildConfigField('String', 'BASE_URL', "\"https://api.themoviedb.org/\"")
+            buildConfigField('String', 'IMAGE_URL', "\"https://image.tmdb.org/t/p/w200/\"")
+            buildConfigField("String", "API_KEY", "\"2cdf3a5c7cf412421485f89ace91e373\"")
+
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'APP_TYPE', '"release"')
+            buildConfigField('String', 'BASE_URL', "\"https://api.themoviedb.org/\"")
+            buildConfigField('String', 'IMAGE_URL', "\"https://image.tmdb.org/t/p/w200/\"")
+            buildConfigField("String", "API_KEY", "\"2cdf3a5c7cf412421485f89ace91e373\"")
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation(Libs.appcompat)
+    implementation(Libs.legacySupport)
+    implementation(Libs.constraintLayout)
+    implementation(Libs.recyclerview)
+    implementation(Libs.material)
+    implementation(Libs.stdLib)
+
+    implementation(Libs.roomRuntime)
+    implementation(Libs.roomKtx)
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.2.0'
+    kapt(Libs.roomCompiler)
+
+    implementation(Libs.lifecycleViewModelKtx)
+    implementation(Libs.lifecycleLiveDataKtx)
+    implementation(Libs.lifecycleKtx)
+
+    implementation(Libs.coroutineCore)
+    implementation(Libs.coroutineAndroid)
+    testImplementation(Libs.coroutineTest)
+
+    implementation(Libs.retrofit)
+    implementation(Libs.retrofitGson)
+    implementation(Libs.okLogging)
+
+    implementation(Libs.koinCore)
+    implementation(Libs.koinViewModel)
+    implementation(Libs.koinScope)
+
+    implementation(Libs.glideRuntime)
+    kapt(Libs.glideCompiler)
+
+    implementation(Libs.timber)
+
+    implementation(Libs.paging)
+
+    implementation(Libs.navigationFragmentKtx)
+    implementation(Libs.navigationRuntimeKtx)
+    implementation(Libs.navigationUiKtx)
+
+    testImplementation(Libs.junit)
+    testImplementation(Libs.mockitoCore)
+    testImplementation(Libs.archCore)
+}

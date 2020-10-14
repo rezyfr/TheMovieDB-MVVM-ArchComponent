@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="4dp"
+    app:cardBackgroundColor="@color/darkpink"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingVertical="36dp">
+
+        <TextView
+            android:id="@+id/tv_genre"
+            android:textSize="18sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Genre"
+            android:textStyle="bold"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>

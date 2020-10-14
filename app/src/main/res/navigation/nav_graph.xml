@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashscreen">
+
+    <fragment
+        android:id="@+id/splashscreen"
+        android:name="com.example.axiatatest.ui.views.splashscreen.SplashscreenFragment">
+        <action
+            android:id="@+id/to_genre_list"
+            app:destination="@id/genre_list"
+            app:popUpTo="@id/splashscreen"
+            app:popUpToInclusive="true" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/genre_list"
+        android:name="com.example.axiatatest.ui.views.genrelist.GenreListFragment">
+        <action
+            android:id="@+id/to_movie_list_fragment"
+            app:destination="@id/movie_list_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="genre"
+                app:argType="com.example.axiatatest.data.model.Genre" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_list_fragment"
+        android:name="com.example.axiatatest.ui.views.movielist.MovieListFragment">
+
+        <argument
+            android:name="genre"
+            app:argType="com.example.axiatatest.data.model.Genre" />
+
+        <action
+            android:id="@+id/to_movie_detail"
+            app:destination="@id/movie_detail_fragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right">
+            <argument
+                android:name="movie"
+                app:argType="com.example.axiatatest.data.model.Movie" />
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/movie_detail_fragment"
+        android:name="com.example.axiatatest.ui.views.moviedetail.MovieDetailFragment">
+        <argument
+            android:name="movie"
+            app:argType="com.example.axiatatest.data.model.Movie" />
+    </fragment>
+
+</navigation>
