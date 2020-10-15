@@ -10,7 +10,7 @@ import com.example.axiatatest.R
 import com.example.axiatatest.data.model.Review
 import kotlinx.android.synthetic.main.item_review_layout.view.*
 
-class ReviewAdapter() :
+class ReviewAdapter :
     PagedListAdapter<Review, RecyclerView.ViewHolder>(object : DiffUtil.ItemCallback<Review>() {
         override fun areItemsTheSame(oldItem: Review, newItem: Review): Boolean {
             return oldItem.id == newItem.id

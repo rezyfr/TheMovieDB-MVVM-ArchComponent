@@ -2,10 +2,8 @@ package com.example.axiatatest.data.source
 
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PageKeyedDataSource
-import com.example.axiatatest.data.model.Movie
 import com.example.axiatatest.data.model.Review
 import com.example.axiatatest.ui.base.BaseMovieDetailViewModel
-import com.example.axiatatest.ui.base.BaseMovieListViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
@@ -57,18 +55,18 @@ abstract class MovieDetailDataSource(
     }
 
     override fun loadAfter(params: LoadParams<Int>, callback: LoadCallback<Int, Review>) {
-        if(viewModel.isLoading.value == true) return
+        if (viewModel.isLoading.value == true) return
         viewModel.viewModelScope.launch {
             try {
                 viewModel.isLoadMore.value = true
                 val reviewList = loadDataSource(loadParams = params)
                 callback.onResult(
                     reviewList,
-                    if(reviewList.size < 10) null
+                    if (reviewList.size < 10) null
                     else params.key + 1
                 )
                 Timber.d("detailParamsKey = ${params.key}")
-            } catch (e: Throwable){
+            } catch (e: Throwable) {
                 viewModel.onError(e)
             } finally {
                 viewModel.hideLoading()

@@ -14,7 +14,7 @@ import com.example.axiatatest.R
 import com.example.axiatatest.utils.hideLoading
 import com.example.axiatatest.utils.showLoading
 
-abstract class BaseFragment<ViewModel: BaseViewModel>: Fragment(){
+abstract class BaseFragment<ViewModel : BaseViewModel> : Fragment() {
 
     protected abstract val viewModel: ViewModel
 

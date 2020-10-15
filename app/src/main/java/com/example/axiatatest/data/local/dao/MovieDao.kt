@@ -1,10 +1,11 @@
 package com.example.axiatatest.data.local.dao
 
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Query
 import com.example.axiatatest.data.model.Movie
 
 @Dao
-interface MovieDao: BaseDao<Movie> {
+interface MovieDao : BaseDao<Movie> {
     @Query("SELECT * FROM movie")
     suspend fun getMovieList(): List<Movie>?
 

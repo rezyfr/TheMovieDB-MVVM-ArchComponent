@@ -28,6 +28,7 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>() {
         viewModel.getMovieDetail(args.movie.id)
         viewModel.movieId.value = args.movie.id
         viewModel.movieDetail.observe(viewLifecycleOwner, {
+            val rating = it.vote_average / 2
             Glide.with(this)
                 .load(it.getBackdropPath())
                 .into(iv_backdrop)
@@ -37,6 +38,7 @@ class MovieDetailFragment : BaseFragment<MovieDetailViewModel>() {
             tv_runtime.text = "${it.runtime} minutes"
             tv_budget.text = it.budget.toUsd()
             tv_date.text = it.release_date.toDateView()
+            rating_bar.rating = rating.toFloat()
         })
         rv_review.adapter = reviewAdapter
         rv_review.isNestedScrollingEnabled = false

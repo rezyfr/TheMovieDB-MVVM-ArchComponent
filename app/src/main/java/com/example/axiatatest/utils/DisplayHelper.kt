@@ -7,7 +7,7 @@ import java.time.format.DateTimeFormatter
 import java.util.*
 
 fun Int.toUsd(): String {
-    return if(this!=0) {
+    return if (this != 0) {
         val format: NumberFormat = NumberFormat.getCurrencyInstance()
         format.maximumFractionDigits = 0
         format.currency = Currency.getInstance("USD")

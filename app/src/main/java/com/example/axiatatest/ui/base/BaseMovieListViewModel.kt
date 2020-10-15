@@ -8,7 +8,7 @@ import androidx.paging.PagedList
 import com.example.axiatatest.data.model.Movie
 import com.example.axiatatest.data.source.MovieListDataSource
 
-abstract class BaseMovieListViewModel :BaseViewModel(){
+abstract class BaseMovieListViewModel : BaseViewModel() {
 
     private val pagedListConfig: PagedList.Config by lazy {
         PagedList.Config.Builder()
@@ -34,7 +34,7 @@ abstract class BaseMovieListViewModel :BaseViewModel(){
     private var dataSource: MovieListDataSource? = null
 
     fun createDataSource(): MovieListDataSource {
-        return object : MovieListDataSource(viewModel = this@BaseMovieListViewModel){
+        return object : MovieListDataSource(viewModel = this@BaseMovieListViewModel) {
             override suspend fun loadDataSource(
                 loadInitialParams: LoadInitialParams<Int>?,
                 loadParams: LoadParams<Int>?,

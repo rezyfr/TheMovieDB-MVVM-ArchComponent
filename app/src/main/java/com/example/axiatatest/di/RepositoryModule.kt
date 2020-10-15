@@ -9,12 +9,11 @@ import com.example.axiatatest.data.repository.GenreRepositoryImpl
 import com.example.axiatatest.data.repository.MovieRepository
 import com.example.axiatatest.data.repository.MovieRepositoryImpl
 import org.koin.android.ext.koin.androidApplication
-import org.koin.android.ext.koin.androidContext
 import org.koin.core.scope.Scope
 import org.koin.dsl.module
 
 val repositoryModule = module {
-    single { provideAppDb()}
+    single { provideAppDb() }
     single { provideMovieDao(get()) }
     single { provideGenreDao(get()) }
     single<MovieRepository> { MovieRepositoryImpl(get(), get()) }
@@ -24,7 +23,7 @@ val repositoryModule = module {
 fun Scope.provideAppDb() =
     Room.databaseBuilder(androidApplication(), AppDatabase::class.java, "AXIATA_TEST_DB").build()
 
-fun provideMovieDao(db: AppDatabase): MovieDao{
+fun provideMovieDao(db: AppDatabase): MovieDao {
     return db.getMovieDao()
 }
 

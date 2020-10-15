@@ -14,7 +14,7 @@ interface GenreRepository {
 class GenreRepositoryImpl(
     private val apiService: ApiService,
     private val genreDao: GenreDao
-): GenreRepository{
+) : GenreRepository {
     override suspend fun fetchGenreList(): GenreResponse {
         return apiService.getGenreList()
     }

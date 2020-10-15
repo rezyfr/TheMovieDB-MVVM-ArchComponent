@@ -2,7 +2,6 @@ package com.example.axiatatest.ui.views.movielist
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.navArgs
 import com.example.axiatatest.R

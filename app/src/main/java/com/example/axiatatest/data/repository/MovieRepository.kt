@@ -20,7 +20,7 @@ interface MovieRepository {
 class MovieRepositoryImpl(
     private var apiService: ApiService,
     private var movieDao: MovieDao
-): MovieRepository{
+) : MovieRepository {
     override suspend fun fetchMovieList(hashMap: HashMap<String, String>): MovieListResponse {
         return apiService.getDiscoverMovieAsync(hashMap)
     }

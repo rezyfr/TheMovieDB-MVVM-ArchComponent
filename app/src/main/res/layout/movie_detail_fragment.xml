@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/darkblue"
     tools:context=".ui.views.moviedetail.MovieDetailFragment">
 
@@ -20,7 +20,13 @@
                 android:id="@+id/iv_backdrop"
                 android:layout_width="match_parent"
                 android:layout_height="300dp"
-                android:scaleType="centerCrop"/>
+                android:scaleType="centerCrop" />
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="300dp"
+                android:background="@drawable/cover_backdrop"
+                android:scaleType="centerCrop" />
 
             <ImageView
                 android:id="@+id/iv_back"
@@ -80,7 +86,8 @@
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="16dp"
                 android:isIndicator="true"
-                android:numStars="5" />
+                android:numStars="5"
+                android:progressTint="#FFD700" />
         </RelativeLayout>
 
         <LinearLayout
@@ -165,12 +172,12 @@
                 android:textStyle="bold" />
 
             <androidx.recyclerview.widget.RecyclerView
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:orientation="vertical"
+                android:id="@+id/rv_review"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/rv_review"
-                tools:listitem="@layout/item_review_layout"/>
+                android:orientation="vertical"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/item_review_layout" />
         </LinearLayout>
 
     </LinearLayout>

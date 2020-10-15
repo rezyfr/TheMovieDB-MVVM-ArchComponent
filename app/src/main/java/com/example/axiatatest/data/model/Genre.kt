@@ -10,4 +10,4 @@ import kotlinx.android.parcel.Parcelize
 data class Genre(
     @PrimaryKey(autoGenerate = false) val id: Int,
     val name: String
-): Parcelable
+) : Parcelable

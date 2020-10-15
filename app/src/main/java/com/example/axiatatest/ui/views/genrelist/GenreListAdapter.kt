@@ -1,16 +1,12 @@
 package com.example.axiatatest.ui.views.genrelist
 
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.ContextCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.example.axiatatest.R
 import com.example.axiatatest.data.model.Genre
 import kotlinx.android.synthetic.main.item_genre_layout.view.*
-import java.math.RoundingMode
-import java.text.DecimalFormat
 
 class GenreAdapter(
     private val listItem: ArrayList<Genre>,
@@ -18,7 +14,8 @@ class GenreAdapter(
 ) : RecyclerView.Adapter<GenreAdapter.ItemViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_genre_layout, parent, false)
+        val view =
+            LayoutInflater.from(parent.context).inflate(R.layout.item_genre_layout, parent, false)
         return ItemViewHolder(view)
     }
 

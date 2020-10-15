@@ -4,7 +4,6 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.axiatatest.R
 import com.example.axiatatest.ui.base.BaseFragment
-import com.example.axiatatest.ui.base.BaseViewModel
 import com.example.axiatatest.ui.base.getNavController
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch

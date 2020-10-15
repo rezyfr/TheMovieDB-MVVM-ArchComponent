@@ -32,7 +32,7 @@ fun provideOkHttpClient(): OkHttpClient {
 fun provideLoggingInterceptor(): HttpLoggingInterceptor {
     val interceptor = HttpLoggingInterceptor()
     if (BuildConfig.DEBUG) {
-    interceptor.level = HttpLoggingInterceptor.Level.BODY
+        interceptor.level = HttpLoggingInterceptor.Level.BODY
     } else {
         interceptor.level = HttpLoggingInterceptor.Level.NONE
     }

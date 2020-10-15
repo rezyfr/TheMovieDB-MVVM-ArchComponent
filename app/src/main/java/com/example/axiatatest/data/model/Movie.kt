@@ -31,7 +31,7 @@ data class Movie(
     val vote_average: Double? = null,
     val vote_count: Int? = null,
     var isFavorite: Boolean? = false
-) : Parcelable{
+) : Parcelable {
 
     fun getFullPosterPath() =
         if (poster_path.isNullOrBlank()) null else BuildConfig.IMAGE_URL + poster_path

@@ -8,5 +8,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="darkblue">#070215</color>
-    <color name="darkpink">#3f1049</color>
+    <color name="pink">#9b528e</color>
+    <color name="darkblue_transparent">#a6070215</color>
+    <color name="darkpink_transparent">#4d3f1049</color>
+
 </resources>

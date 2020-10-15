@@ -6,11 +6,10 @@ import com.example.axiatatest.utils.SingleLiveEvent
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import java.net.ConnectException
-import java.net.HttpURLConnection
 import java.net.SocketTimeoutException
 import java.net.UnknownHostException
 
-abstract class BaseViewModel : ViewModel(){
+abstract class BaseViewModel : ViewModel() {
 
     val isLoadMore = MutableLiveData(false)
 
