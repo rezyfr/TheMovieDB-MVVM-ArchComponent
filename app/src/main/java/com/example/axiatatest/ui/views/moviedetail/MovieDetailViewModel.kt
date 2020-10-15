@@ -4,6 +4,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PageKeyedDataSource
 import com.example.axiatatest.data.model.Review
+import com.example.axiatatest.data.model.Trailer
 import com.example.axiatatest.data.remote.response.MovieDetailResponse
 import com.example.axiatatest.data.repository.MovieRepository
 import com.example.axiatatest.ui.base.BaseMovieDetailViewModel
@@ -15,6 +16,7 @@ class MovieDetailViewModel(
 
     val movieDetail = MutableLiveData<MovieDetailResponse>()
     val movieId = MutableLiveData<Int>()
+    val trailerKey = MutableLiveData<Trailer>()
 
     fun getMovieDetail(movieId: Int) {
         viewModelScope.launch {
@@ -30,7 +32,21 @@ class MovieDetailViewModel(
         }
     }
 
-    override suspend fun loadData(
+    fun getTrailerDetail(movieId: Int){
+        viewModelScope.launch {
+            runCatching {
+               movieRepository.getTrailerDetail(movieId)
+            }.onSuccess {
+                if (it != null) {
+                    trailerKey.value = it.results?.get(0)
+                }
+            }.onFailure {
+                onError(it)
+            }
+        }
+    }
+
+    override suspend fun loadReview(
         loadInitialParams: PageKeyedDataSource.LoadInitialParams<Int>?,
         loadParams: PageKeyedDataSource.LoadParams<Int>?
     ): List<Review> {
@@ -38,7 +54,7 @@ class MovieDetailViewModel(
 
         return movieId.value?.let {
             movieRepository.getMovieReviews(page, it).let { reviewResponse ->
-                reviewResponse.results.toList()
+                reviewResponse.results?.toList()
             }
         } ?: listOf()
     }

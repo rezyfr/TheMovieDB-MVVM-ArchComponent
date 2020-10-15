@@ -1,10 +1,7 @@
 package com.example.axiatatest.data.remote
 
 import com.example.axiatatest.data.constants.ApiParams
-import com.example.axiatatest.data.remote.response.GenreResponse
-import com.example.axiatatest.data.remote.response.MovieDetailResponse
-import com.example.axiatatest.data.remote.response.MovieListResponse
-import com.example.axiatatest.data.remote.response.ReviewResponse
+import com.example.axiatatest.data.remote.response.*
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -29,4 +26,9 @@ interface ApiService {
         @Path("movie_id") movie_id: Int,
         @Query(ApiParams.PAGE) page: String
     ): ReviewResponse
+
+    @GET("3/movie/{movie_id}/videos")
+    suspend fun getTrailerDetail(
+        @Path("movie_id") movie_id: Int
+    ): TrailerResponse
 }

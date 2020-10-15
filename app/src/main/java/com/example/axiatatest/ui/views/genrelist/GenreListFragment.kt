@@ -11,6 +11,7 @@ import kotlinx.android.synthetic.main.genre_list_fragment.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import timber.log.Timber
 
 class GenreListFragment : BaseFragment<GenreListViewModel>() {
 
@@ -19,19 +20,27 @@ class GenreListFragment : BaseFragment<GenreListViewModel>() {
 
     override fun layoutRes(): Int = R.layout.genre_list_fragment
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel.fetchGenre()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.fetchGenre()
         genreAdapter = GenreAdapter(arrayListOf()) {
             goToMovieList(it)
         }
         rv_genre.adapter = genreAdapter
-        lifecycleScope.launch(Dispatchers.IO) {
+        lifecycleScope.launch(Dispatchers.Main) {
             val genreList = viewModel.getGenreList()
+            Timber.d("SETGENRE")
             if (genreList != null) {
                 genreAdapter.setData(genreList)
             }
         }
+        viewModel.genreList.observe(viewLifecycleOwner, {
+            if (it != null) genreAdapter.setData(it)
+        })
     }
 
     private fun goToMovieList(genre: Genre) {

@@ -6,6 +6,7 @@ import com.example.axiatatest.data.remote.ApiService
 import com.example.axiatatest.data.remote.response.MovieDetailResponse
 import com.example.axiatatest.data.remote.response.MovieListResponse
 import com.example.axiatatest.data.remote.response.ReviewResponse
+import com.example.axiatatest.data.remote.response.TrailerResponse
 
 interface MovieRepository {
     suspend fun fetchMovieList(hashMap: HashMap<String, String>): MovieListResponse
@@ -15,6 +16,7 @@ interface MovieRepository {
     suspend fun insertMovieToDb(movie: Movie)
     suspend fun getMovieById(id: String): Movie?
     suspend fun getMovieList(): List<Movie>?
+    suspend fun getTrailerDetail(movieId: Int): TrailerResponse?
 }
 
 class MovieRepositoryImpl(
@@ -31,6 +33,10 @@ class MovieRepositoryImpl(
 
     override suspend fun getMovieReviews(page: String, movieId: Int): ReviewResponse {
         return apiService.getReviewList(movieId, page)
+    }
+
+    override suspend fun getTrailerDetail(movieId: Int): TrailerResponse? {
+        return apiService.getTrailerDetail(movieId)
     }
 
     override suspend fun insertMovieToDb(list: List<Movie>) {

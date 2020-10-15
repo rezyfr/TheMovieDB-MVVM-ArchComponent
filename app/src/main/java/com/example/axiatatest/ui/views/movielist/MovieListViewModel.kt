@@ -13,7 +13,7 @@ class MovieListViewModel(
 
     val genreId = MutableLiveData<Int>()
 
-    override suspend fun loadData(
+    override suspend fun loadMovieList(
         loadInitialParams: PageKeyedDataSource.LoadInitialParams<Int>?,
         loadParams: PageKeyedDataSource.LoadParams<Int>?
     ): List<Movie> {

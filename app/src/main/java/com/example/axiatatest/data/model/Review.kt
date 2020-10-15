@@ -1,8 +1,8 @@
 package com.example.axiatatest.data.model
 
 data class Review(
-    val author: String,
-    val content: String,
-    val id: String,
-    val url: String
+    val author: String? = null,
+    val content: String? = null,
+    val id: String? = null,
+    val url: String? = null
 )

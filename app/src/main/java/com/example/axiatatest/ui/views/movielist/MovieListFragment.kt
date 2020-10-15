@@ -30,7 +30,7 @@ class MovieListFragment : BaseFragment<MovieListViewModel>() {
         }
         rv_movie.adapter = movieListAdapter
         viewModel.apply {
-            itemList.observe(viewLifecycleOwner, Observer {
+            movieList.observe(viewLifecycleOwner, Observer {
                 movieListAdapter.submitList(it)
             })
         }

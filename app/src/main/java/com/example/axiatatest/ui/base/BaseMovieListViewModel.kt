@@ -20,7 +20,7 @@ abstract class BaseMovieListViewModel : BaseViewModel() {
     }
 
     // item list
-    val itemList: LiveData<PagedList<Movie>> by lazy {
+    val movieList: LiveData<PagedList<Movie>> by lazy {
         LivePagedListBuilder(
             object : DataSource.Factory<Int, Movie>() {
                 override fun create(): DataSource<Int, Movie> {
@@ -39,14 +39,14 @@ abstract class BaseMovieListViewModel : BaseViewModel() {
                 loadInitialParams: LoadInitialParams<Int>?,
                 loadParams: LoadParams<Int>?,
             ): List<Movie> {
-                return loadData(loadInitialParams, loadParams)
+                return loadMovieList(loadInitialParams, loadParams)
             }
         }.apply {
             dataSource = this
         }
     }
 
-    abstract suspend fun loadData(
+    abstract suspend fun loadMovieList(
         loadInitialParams: PageKeyedDataSource.LoadInitialParams<Int>?,
         loadParams: PageKeyedDataSource.LoadParams<Int>?
     ): List<Movie>

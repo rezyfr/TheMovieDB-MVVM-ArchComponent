@@ -64,13 +64,4 @@ object Libs {
     const val junit = "junit:junit:4.13"
     const val mockitoCore = "org.mockito:mockito-core:3.3.3"
     const val archCore = "android.arch.core:core-testing:1.1.1"
-
-    const val testRunner = "com.android.support.test:runner:1.0.2"
-    const val espressoCore = "com.android.support.test.espresso:espresso-core:3.0.2"
-    const val roomTest = "android.arch.persistence.room:testing:1.1.1"
-
-    const val mockWebServer = "com.squareup.okhttp3:mockwebserver:4.4.0"
-    const val kotlinTest = "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVersion"
-
-    const val viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
 }
