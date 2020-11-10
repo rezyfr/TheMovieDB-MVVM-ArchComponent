@@ -1,4 +1,4 @@
-package com.example.axiatatest
+package com.example
 
 import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import org.junit.Before

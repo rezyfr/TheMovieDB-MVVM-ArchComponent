@@ -1,0 +1,11 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    implementation Android.appCompat
+    implementation Android.ktx
+    implementation Coroutines.android
+    implementation Coroutines.core
+
+    implementation Glide.glide
+    kapt Glide.compiler
+}

@@ -1,2 +1,7 @@
+include ':data:local'
+include ':data:network'
+include ':feature:genre'
+include ':feature:movie'
+include ':base'
 include ':app'
-rootProject.name = "AxiataTest"
+rootProject.name = "RZMoviedb"

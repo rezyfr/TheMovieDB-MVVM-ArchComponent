@@ -1,4 +1,4 @@
-package com.example.axiatatest
+package com.example
 
 import org.mockito.Mockito
 

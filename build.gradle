@@ -6,11 +6,14 @@ buildscript {
     repositories {
         google()
         jcenter()
+        maven {
+            url "https://maven.google.com"
+        }
     }
     dependencies {
         classpath "com.android.tools.build:gradle:4.1.0"
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Libs.kotlinVersion}")
-        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Libs.navigationVersion}")
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version")
+        classpath("androidx.navigation:navigation-safe-args-gradle-plugin:${Version.navigation}")
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -21,6 +24,8 @@ allprojects {
     repositories {
         google()
         jcenter()
+        maven { url 'https://maven.google.com/' }
+        maven { url 'https://jitpack.io' }
     }
 }
 

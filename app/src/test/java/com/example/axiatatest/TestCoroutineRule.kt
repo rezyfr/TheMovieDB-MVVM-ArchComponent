@@ -1,4 +1,4 @@
-package com.example.axiatatest
+package com.example
 
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi

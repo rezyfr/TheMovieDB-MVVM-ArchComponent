@@ -1,0 +1,12 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    implementation project(Modules.base)
+    implementation project(Modules.network)
+
+
+    implementation Jetpack.lifecycleViewModelKtx
+    implementation Jetpack.lifecycleLiveDataKtx
+    implementation Jetpack.lifecycleKtx
+    implementation Jetpack.lifecycleExt
+}

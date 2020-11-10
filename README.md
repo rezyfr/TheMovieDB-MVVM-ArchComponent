@@ -1,4 +1,4 @@
-TheMovieDB App for Axiata Digital Lab test with MVVM architecture. Tech stack I just learned and try to implement in this project are Navigation Component and Pagination.
+TheMovieDB App with MVVM architecture. Tech stack I just learned and try to implement in this project are Navigation Component and Pagination.
 ## Preview
 <img src="https://user-images.githubusercontent.com/22698234/96059094-3bcc9780-0eb7-11eb-8392-423e69cbfe1b.jpg" width="300">    <img src="https://user-images.githubusercontent.com/22698234/96059105-3f601e80-0eb7-11eb-8ac2-af11263706ad.jpg" width="300">    <img src="https://user-images.githubusercontent.com/22698234/96059062-1f305f80-0eb7-11eb-8f1f-d05bab1c44e4.jpg" width="300">
 

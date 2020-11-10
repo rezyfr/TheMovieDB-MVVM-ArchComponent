@@ -1,0 +1,73 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'androidx.navigation.safeargs.kotlin'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        buildConfigField('String', 'BASE_URL', "\"https://api.themoviedb.org/\"")
+        buildConfigField('String', 'IMAGE_URL', "\"https://image.tmdb.org/t/p/w200/\"")
+        buildConfigField("String", "BACKDROP_URL", "\"https://image.tmdb.org/t/p/w500\"")
+        buildConfigField("String", "API_KEY", "\"2cdf3a5c7cf412421485f89ace91e373\"")
+        buildConfigField("String", "YOUTUBE_URL", "\"https://www.youtube.com/watch?v=\"")
+        buildConfigField("String", "API_KEY", "\"2cdf3a5c7cf412421485f89ace91e373\"")
+        buildConfigField("String", "YOUTUBE_URL", "\"https://www.youtube.com/watch?v=\"")
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'APP_TYPE', '"debug"')
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            buildConfigField('String', 'APP_TYPE', '"release"')
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation Dependencies.kotlin
+    implementation Android.design
+    implementation Android.timber
+
+    implementation Koin.koinCore
+    implementation Koin.koinViewModel
+    implementation Koin.koinScope
+    implementation Koin.koinAndroid
+
+    implementation Room.roomKtx
+    implementation Room.roomRuntime
+    kapt Room.roomCompiler
+
+    implementation Jetpack.lifecycleViewModelKtx
+    implementation Jetpack.lifecycleLiveDataKtx
+    implementation Jetpack.lifecycleKtx
+    implementation Jetpack.lifecycleExt
+
+    implementation Retrofit.retrofit
+    implementation Jetpack.navigationRuntimeKtx
+    implementation Jetpack.navigationFragmentKtx
+    implementation Jetpack.navigationUiKtx
+
+    implementation Glide.glide
+    kapt Glide.compiler
+}

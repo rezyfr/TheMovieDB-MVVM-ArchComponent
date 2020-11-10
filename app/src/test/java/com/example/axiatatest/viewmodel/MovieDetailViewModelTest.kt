@@ -1,14 +1,14 @@
-package com.example.axiatatest.viewmodel
+package com.example.viewmodel
 
 import androidx.lifecycle.Observer
-import com.example.axiatatest.BaseViewModelTest
-import com.example.axiatatest.data.model.Genre
-import com.example.axiatatest.data.model.Review
-import com.example.axiatatest.data.remote.response.MovieDetailResponse
-import com.example.axiatatest.data.remote.response.ReviewResponse
-import com.example.axiatatest.data.repository.MovieRepository
-import com.example.axiatatest.mock
-import com.example.axiatatest.ui.views.moviedetail.MovieDetailViewModel
+import com.example.BaseViewModelTest
+import com.example.genre.data.model.Genre
+import com.example.movielist.data.model.Review
+import com.example.movielist.data.remote.response.MovieDetailResponse
+import com.example.movielist.data.remote.response.ReviewResponse
+import com.example.movielist.data.repository.MovieRepository
+import com.example.mock
+import com.example.movielist.ui.views.moviedetail.MovieDetailViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import org.junit.Assert
 import org.junit.Test
@@ -64,7 +64,7 @@ class MovieDetailViewModelTest : BaseViewModelTest() {
 
     private fun mockMovieDetailResponse(): MovieDetailResponse {
         return MovieDetailResponse(
-            genres = arrayListOf(Genre(1, "Action")),
+            genres = arrayListOf(com.example.genre.data.model.Genre(1, "Action")),
             id = 1,
             overview = "Lorem ipsum dolor",
             title = "The Movie Detail"

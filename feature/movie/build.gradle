@@ -1,0 +1,9 @@
+apply from: "$rootDir/common.gradle"
+
+dependencies {
+    implementation project(Modules.base)
+    implementation project(Modules.network)
+    implementation project(Modules.genre)
+
+    implementation Jetpack.paging
+}
