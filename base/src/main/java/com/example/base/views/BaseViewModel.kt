@@ -18,8 +18,6 @@ abstract class BaseViewModel : ViewModel() {
     val noInternetConnectionEvent by lazy { SingleLiveEvent<Unit>() }
     val connectTimeoutEvent by lazy { SingleLiveEvent<Unit>() }
 
-    open val firstPage = 1
-
     open suspend fun onError(throwable: Throwable) {
         withContext(Dispatchers.Main) {
             when (throwable) {

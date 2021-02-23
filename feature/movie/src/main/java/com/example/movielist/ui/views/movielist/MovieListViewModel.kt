@@ -1,26 +1,26 @@
 package com.example.movielist.ui.views.movielist
 
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PageKeyedDataSource
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import androidx.paging.*
+import com.example.base.views.BaseViewModel
 import com.example.network.constants.ApiParams
 import com.example.movielist.data.model.Movie
 import com.example.movielist.data.repository.MovieRepository
+import com.example.movielist.data.source.MovieListDataSource
 import com.example.movielist.ui.base.BaseMovieListViewModel
+import kotlinx.coroutines.flow.Flow
 
 class MovieListViewModel(
-    private val movieRepository: MovieRepository
-) : BaseMovieListViewModel() {
+    private val movieListDataSource: MovieListDataSource
+) : BaseViewModel() {
 
-    val genreId = MutableLiveData<Int>()
+    var genreId = MutableLiveData<Int>()
 
-    override suspend fun loadMovieList(
-        loadInitialParams: PageKeyedDataSource.LoadInitialParams<Int>?,
-        loadParams: PageKeyedDataSource.LoadParams<Int>?
-    ): List<Movie> {
-        val apiParams = HashMap<String, String>()
-        apiParams[ApiParams.PAGE] = (loadParams?.key ?: firstPage).toString()
-        apiParams[ApiParams.GENRE] = genreId.value.toString()
-
-        return movieRepository.fetchMovieList(apiParams).results?.toList() ?: listOf()
+    fun getMovieList(): Flow<PagingData<Movie>> {
+        movieListDataSource.genreId = genreId
+        return Pager(PagingConfig(pageSize = 10), pagingSourceFactory = {movieListDataSource} ).flow.cachedIn(viewModelScope)
     }
+
 }

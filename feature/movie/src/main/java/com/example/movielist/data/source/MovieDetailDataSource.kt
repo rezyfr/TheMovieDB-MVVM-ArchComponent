@@ -4,11 +4,12 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PageKeyedDataSource
 import com.example.movielist.data.model.Review
 import com.example.movielist.ui.base.BaseMovieDetailViewModel
+import com.example.movielist.ui.views.moviedetail.MovieDetailViewModel
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
 abstract class MovieDetailDataSource(
-    private val viewModel: BaseMovieDetailViewModel
+    private val viewModel: MovieDetailViewModel
 ) : PageKeyedDataSource<Int, Review>() {
 
     override fun loadInitial(
